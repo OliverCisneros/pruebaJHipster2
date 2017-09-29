@@ -1,0 +1,33 @@
+
+<div *ngIf="alumno">
+    <h2><span jhiTranslate="pruebaJHipster2App.alumno.detail.title">Alumno</span> {{alumno.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="pruebaJHipster2App.alumno.name">Name</span></dt>
+        <dd>
+            <span>{{alumno.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="pruebaJHipster2App.alumno.surname">Surname</span></dt>
+        <dd>
+            <span>{{alumno.surname}}</span>
+        </dd>
+        <dt><span jhiTranslate="pruebaJHipster2App.alumno.semestre">Semestre</span></dt>
+        <dd>
+            <span>{{alumno.semestre}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'alumno/'+ alumno.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

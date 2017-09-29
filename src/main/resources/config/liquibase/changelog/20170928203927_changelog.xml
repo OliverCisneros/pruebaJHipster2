@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+   <changeSet author="WorkNest5 (generated)" id="1506631177205-1">
+      <createTable tableName="profesor">
+         <column autoIncrement="true" name="id" type="numeric(19, 0)">
+            <constraints primaryKey="true" primaryKeyName="profesorPK"/>
+         </column>
+         <column name="nombre_profe" type="varchar(255)">
+            <constraints nullable="false"/>
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet author="WorkNest5 (generated)" id="1506631177205-2">
+      <addColumn tableName="materia">
+         <column name="profesor_id" type="numeric(19, 0)">
+            <constraints nullable="false"/>
+         </column>
+      </addColumn>
+   </changeSet>
+   <changeSet author="WorkNest5 (generated)" id="1506631177205-3">
+      <addUniqueConstraint columnNames="profesor_id"
+                           constraintName="UK_2d82e3bc1d3ifp9p9lxb11cin"
+                           tableName="materia"/>
+   </changeSet>
+   <changeSet author="WorkNest5 (generated)" id="1506631177205-4">
+      <addForeignKeyConstraint baseColumnNames="profesor_id"
+                               baseTableName="materia"
+                               constraintName="FKrnkkyqs5302jdtfphon5oag8b"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="profesor"/>
+   </changeSet>
+   <changeSet author="WorkNest5 (generated)" id="1506631177205-5">
+      <dropColumn columnName="id_materia" tableName="materia"/>
+   </changeSet>
+   <changeSet author="WorkNest5 (generated)" id="1506631177205-6">
+      <dropColumn columnName="no_control" tableName="alumno"/>
+   </changeSet>
+   <changeSet author="WorkNest5 (generated)" id="1506631177205-7">
+      <alterSequence sequenceName="hibernate_sequence"/>
+      <alterSequence sequenceName="hibernate_sequence"/>
+      <alterSequence sequenceName="hibernate_sequence"/>
+   </changeSet>
+</databaseChangeLog>

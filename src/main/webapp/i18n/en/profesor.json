@@ -1,0 +1,22 @@
+{
+    "pruebaJHipster2App": {
+        "profesor" : {
+            "home": {
+                "title": "Profesors",
+                "createLabel": "Create a new Profesor",
+                "createOrEditLabel": "Create or edit a Profesor",
+                "search": "Search for Profesor"
+            },
+            "created": "A new Profesor is created with identifier {{ param }}",
+            "updated": "A Profesor is updated with identifier {{ param }}",
+            "deleted": "A Profesor is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Profesor {{ id }}?"
+            },
+            "detail": {
+                "title": "Profesor"
+            },
+            "nombreProfe": "Nombre Profe"
+        }
+    }
+}

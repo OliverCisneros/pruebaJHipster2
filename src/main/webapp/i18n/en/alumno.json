@@ -1,0 +1,25 @@
+{
+    "pruebaJHipster2App": {
+        "alumno" : {
+            "home": {
+                "title": "Alumnos",
+                "createLabel": "Create a new Alumno",
+                "createOrEditLabel": "Create or edit a Alumno",
+                "search": "Search for Alumno"
+            },
+            "created": "A new Alumno is created with identifier {{ param }}",
+            "updated": "A Alumno is updated with identifier {{ param }}",
+            "deleted": "A Alumno is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Alumno {{ id }}?"
+            },
+            "detail": {
+                "title": "Alumno"
+            },
+            "name": "Name",
+            "surname": "Surname",
+            "semestre": "Semestre",
+            "materia": "Materia"
+        }
+    }
+}

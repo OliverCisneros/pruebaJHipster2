@@ -1,0 +1,21 @@
+
+//****************** ENTITIES ******************
+
+entity Alumno{
+	noControl Integer required,
+    name String required,
+    surname String required,
+    semestre Integer required
+}
+
+entity Materia{
+	idMateria Integer required,
+    nombreMateria String required
+}
+
+
+//****************** RELATIONSHIPS ******************
+relationship OneToMany{
+	Alumno{idMateria(idMateria) required} to Materia,
+	Alumno{nombreMateria(nombreMateria) required} to Materia
+}
