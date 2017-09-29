@@ -1,0 +1,85 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myNuevaCompraLabel" jhiTranslate="pruebaJHipster2App.nuevaCompra.home.createOrEditLabel">Create or edit a Nueva Compra</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!nuevaCompra.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="nuevaCompra.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="pruebaJHipster2App.nuevaCompra.idventa" for="field_idventa">Idventa</label>
+            <input type="number" class="form-control" name="idventa" id="field_idventa"
+                [(ngModel)]="nuevaCompra.idventa" required />
+            <div [hidden]="!(editForm.controls.idventa?.dirty && editForm.controls.idventa?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.idventa?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.idventa?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="pruebaJHipster2App.nuevaCompra.cantidadComprar" for="field_cantidadComprar">Cantidad Comprar</label>
+            <input type="number" class="form-control" name="cantidadComprar" id="field_cantidadComprar"
+                [(ngModel)]="nuevaCompra.cantidadComprar" required />
+            <div [hidden]="!(editForm.controls.cantidadComprar?.dirty && editForm.controls.cantidadComprar?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.cantidadComprar?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.cantidadComprar?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="pruebaJHipster2App.nuevaCompra.fechaTransaccion" for="field_fechaTransaccion">Fecha Transaccion</label>
+            <div class="input-group">
+                <input id="field_fechaTransaccion" type="text" class="form-control" name="fechaTransaccion" ngbDatepicker  #fechaTransaccionDp="ngbDatepicker" [(ngModel)]="nuevaCompra.fechaTransaccion"
+                required/>
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-secondary" (click)="fechaTransaccionDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+            <div [hidden]="!(editForm.controls.fechaTransaccion?.dirty && editForm.controls.fechaTransaccion?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.fechaTransaccion?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="pruebaJHipster2App.nuevaCompra.persona" for="field_persona">Persona</label>
+            <select class="form-control" id="field_persona" name="persona" [(ngModel)]="nuevaCompra.persona" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="personaOption.id === nuevaCompra.persona?.id ? nuevaCompra.persona : personaOption" *ngFor="let personaOption of personas; trackBy: trackPersonaById">{{personaOption.nombre}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="pruebaJHipster2App.nuevaCompra.producto" for="field_producto">Producto</label>
+            <select class="form-control" id="field_producto" name="producto" [(ngModel)]="nuevaCompra.producto" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="productoOption.id === nuevaCompra.producto?.id ? nuevaCompra.producto : productoOption" *ngFor="let productoOption of productos; trackBy: trackProductoById">{{productoOption.nombreProducto}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

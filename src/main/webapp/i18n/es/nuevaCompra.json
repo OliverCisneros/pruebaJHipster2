@@ -1,0 +1,26 @@
+{
+    "pruebaJHipster2App": {
+        "nuevaCompra" : {
+            "home": {
+                "title": "Nueva Compras",
+                "createLabel": "Crear nuevo Nueva Compra",
+                "createOrEditLabel": "Crear o editar Nueva Compra",
+                "search": "Search for Nueva Compra"
+            },
+            "created": "Un nuevo Nueva Compra ha sido creado con el identificador {{ param }}",
+            "updated": "Un Nueva Compra ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Nueva Compra ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Nueva Compra {{ id }}?"
+            },
+            "detail": {
+                "title": "Nueva Compra"
+            },
+            "idventa": "Idventa",
+            "cantidadComprar": "Cantidad Comprar",
+            "fechaTransaccion": "Fecha Transaccion",
+            "persona": "Persona",
+            "producto": "Producto"
+        }
+    }
+}

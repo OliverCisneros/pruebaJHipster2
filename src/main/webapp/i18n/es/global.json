@@ -13,6 +13,9 @@
                 "alumno": "Alumno",
                 "materia": "Materia",
                 "profesor": "Profesor",
+                "persona": "Persona",
+                "producto": "Producto",
+                "nuevaCompra": "Nueva Compra",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

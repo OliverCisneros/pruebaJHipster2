@@ -1,0 +1,45 @@
+
+<div *ngIf="nuevaCompra">
+    <h2><span jhiTranslate="pruebaJHipster2App.nuevaCompra.detail.title">Nueva Compra</span> {{nuevaCompra.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="pruebaJHipster2App.nuevaCompra.idventa">Idventa</span></dt>
+        <dd>
+            <span>{{nuevaCompra.idventa}}</span>
+        </dd>
+        <dt><span jhiTranslate="pruebaJHipster2App.nuevaCompra.cantidadComprar">Cantidad Comprar</span></dt>
+        <dd>
+            <span>{{nuevaCompra.cantidadComprar}}</span>
+        </dd>
+        <dt><span jhiTranslate="pruebaJHipster2App.nuevaCompra.fechaTransaccion">Fecha Transaccion</span></dt>
+        <dd>
+            <span>{{nuevaCompra.fechaTransaccion | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="pruebaJHipster2App.nuevaCompra.persona">Persona</span></dt>
+        <dd>
+            <div *ngIf="nuevaCompra.persona">
+                <a [routerLink]="['/persona', nuevaCompra.persona?.id]">{{nuevaCompra.persona?.nombre}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="pruebaJHipster2App.nuevaCompra.producto">Producto</span></dt>
+        <dd>
+            <div *ngIf="nuevaCompra.producto">
+                <a [routerLink]="['/producto', nuevaCompra.producto?.id]">{{nuevaCompra.producto?.nombreProducto}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'nueva-compra/'+ nuevaCompra.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

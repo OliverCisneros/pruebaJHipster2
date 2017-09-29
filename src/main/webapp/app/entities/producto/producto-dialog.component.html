@@ -1,0 +1,81 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myProductoLabel" jhiTranslate="pruebaJHipster2App.producto.home.createOrEditLabel">Create or edit a Producto</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!producto.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="producto.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="pruebaJHipster2App.producto.idProducto" for="field_idProducto">Id Producto</label>
+            <input type="number" class="form-control" name="idProducto" id="field_idProducto"
+                [(ngModel)]="producto.idProducto" required />
+            <div [hidden]="!(editForm.controls.idProducto?.dirty && editForm.controls.idProducto?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.idProducto?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.idProducto?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="pruebaJHipster2App.producto.nombreProducto" for="field_nombreProducto">Nombre Producto</label>
+            <input type="text" class="form-control" name="nombreProducto" id="field_nombreProducto"
+                [(ngModel)]="producto.nombreProducto" required />
+            <div [hidden]="!(editForm.controls.nombreProducto?.dirty && editForm.controls.nombreProducto?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.nombreProducto?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="pruebaJHipster2App.producto.precioVenta" for="field_precioVenta">Precio Venta</label>
+            <input type="number" class="form-control" name="precioVenta" id="field_precioVenta"
+                [(ngModel)]="producto.precioVenta" required />
+            <div [hidden]="!(editForm.controls.precioVenta?.dirty && editForm.controls.precioVenta?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.precioVenta?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.precioVenta?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="pruebaJHipster2App.producto.cantidad" for="field_cantidad">Cantidad</label>
+            <input type="number" class="form-control" name="cantidad" id="field_cantidad"
+                [(ngModel)]="producto.cantidad" required />
+            <div [hidden]="!(editForm.controls.cantidad?.dirty && editForm.controls.cantidad?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.cantidad?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.cantidad?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

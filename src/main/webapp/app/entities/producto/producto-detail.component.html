@@ -1,0 +1,37 @@
+
+<div *ngIf="producto">
+    <h2><span jhiTranslate="pruebaJHipster2App.producto.detail.title">Producto</span> {{producto.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="pruebaJHipster2App.producto.idProducto">Id Producto</span></dt>
+        <dd>
+            <span>{{producto.idProducto}}</span>
+        </dd>
+        <dt><span jhiTranslate="pruebaJHipster2App.producto.nombreProducto">Nombre Producto</span></dt>
+        <dd>
+            <span>{{producto.nombreProducto}}</span>
+        </dd>
+        <dt><span jhiTranslate="pruebaJHipster2App.producto.precioVenta">Precio Venta</span></dt>
+        <dd>
+            <span>{{producto.precioVenta}}</span>
+        </dd>
+        <dt><span jhiTranslate="pruebaJHipster2App.producto.cantidad">Cantidad</span></dt>
+        <dd>
+            <span>{{producto.cantidad}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'producto/'+ producto.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

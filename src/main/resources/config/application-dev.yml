@@ -33,7 +33,7 @@ spring:
         serialization.indent_output: true
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:sqlserver://192.168.0.25:1433;database=backend3
+        url: jdbc:sqlserver://192.168.0.25:1433;database=backend2
         username: backend
         password: test
         hikari:

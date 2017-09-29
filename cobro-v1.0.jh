@@ -1,0 +1,29 @@
+
+//***** ENTITIES
+entity Persona{
+	idPersona Integer required,
+    nombre String required,
+    apaterno String required,
+    amaterno String required,
+    edad Integer required
+}
+
+entity Producto{
+	idProducto Integer required,
+    nombreProducto String required,
+    precioVenta Double required
+    cantidad Integer required
+}
+
+entity NuevaCompra{
+	idventa Integer required,
+    cantidadComprar Integer required,
+    fechaTransaccion LocalDate required
+}
+
+
+//***** RELATIONSHIPS
+relationship OneToMany{
+	Persona to NuevaCompra{persona(nombre)},
+    Producto to NuevaCompra{producto(nombreProducto)}
+}

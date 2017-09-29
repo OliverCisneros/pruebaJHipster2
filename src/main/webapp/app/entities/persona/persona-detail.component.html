@@ -1,0 +1,41 @@
+
+<div *ngIf="persona">
+    <h2><span jhiTranslate="pruebaJHipster2App.persona.detail.title">Persona</span> {{persona.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="pruebaJHipster2App.persona.idPersona">Id Persona</span></dt>
+        <dd>
+            <span>{{persona.idPersona}}</span>
+        </dd>
+        <dt><span jhiTranslate="pruebaJHipster2App.persona.nombre">Nombre</span></dt>
+        <dd>
+            <span>{{persona.nombre}}</span>
+        </dd>
+        <dt><span jhiTranslate="pruebaJHipster2App.persona.apaterno">Apaterno</span></dt>
+        <dd>
+            <span>{{persona.apaterno}}</span>
+        </dd>
+        <dt><span jhiTranslate="pruebaJHipster2App.persona.amaterno">Amaterno</span></dt>
+        <dd>
+            <span>{{persona.amaterno}}</span>
+        </dd>
+        <dt><span jhiTranslate="pruebaJHipster2App.persona.edad">Edad</span></dt>
+        <dd>
+            <span>{{persona.edad}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'persona/'+ persona.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>
